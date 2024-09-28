@@ -1,24 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Changes I Want</title>
+    <style>
+        body {
+            background-color: blanchedalmond;
+            font-family: Arial, sans-serif;
+        }
+
+        section {
+            border: 2px solid black;
+            border-radius: 1em;
+            padding: 0px 20px 10px 20px;
+            margin-top: 20px;
+            background-color: azure;
+        }
+
+        video {
+            width: 800px;
+        }
+
+        img {
+            width: 400px;
+        }
+
+        @media (max-width: 768px) {
+            video {
+                width: 400px;
+            }
+        }
+    </style>
+    <script>
+        function switchImageDarkLight(node) {
+            var imageNode = node.parentNode.nextElementSibling;
+            if (imageNode.id == 'm_dark') {
+                imageNode.id = 'm_light';
+                imageNode.src = 'light_mode_newsletter_message.jpg';
+            } else {
+                imageNode.id = 'm_dark';
+                imageNode.src = 'dark_mode_newsletter_message.jpg';
+            }
+        }
+
+        function switchImageNav(node) {
+            var imageNode = node.parentNode.nextElementSibling;
+            if (imageNode.id == 'm_nav_home') {
+                imageNode.id = 'm_nav_other';
+                imageNode.src = 'mobile_some_other_page_nav.jpg';
+            } else {
+                imageNode.id = 'm_nav_home';
+                imageNode.src = 'mobile_home_page_nav.jpg';
+            }
+        }
+
+        function switchImagePage(node) {
+            var imageNode = node.parentNode.nextElementSibling;
+            if (imageNode.id == 'm_donate') {
+                imageNode.id = 'm_adopt';
+                imageNode.src = 'mobile_adopt_page.jpg';
+            } else {
+                imageNode.id = 'm_donate';
+                imageNode.src = 'donate_pets_page.jpg';
+            }
+        }
+
+        function foo() {
+            var navHomeImage = document.getElementById("m_nav_home");
+            var navOtherImage = document.getElementById("m_nav_other");
+            var donateImage = document.getElementById("m_donate");
+            var adoptImage = document.getElementById("m_adopt");
+
+        }
+    </script>
 </head>
+
 <body>
-    <div>
+    <section>
+        <div>
+            <p>
+                I am okay with the resizing of the post on hover
+                but the text is adjust as well which is uneasy on
+                the eyes
+            </p>
+        </div>
+        <div>
+            <video src="news_hover_post.webm" controls></video>
+        </div>
+    </section>
+    <section>
         <p>
-            I am okay with the resizing of the post on hover
-            but the text is adjust as well which is uneasy on
-            the eyes
+            Attach LLM API to auto-generate the pet news as events
+            are occuring around the world. A twitter bot may be run
+            to actively search for <strong>#petnews</strong> tweets
+            and pick context from the post itself to auto-generate
+            post, or atleast pass on to moderator of website to
+            approve.
         </p>
-    </div>
-    <div>
-        <video 
-        width="1200px" 
-        src="news_hover_post.webm"
-        controls
-        ></video>
-    </div>
+    </section>
+    <section>
+        <p>
+            [MOBILE] <i><q>Subscribe to newsletter</q></i> and other messages show up
+            correct in "Light Mode" but not in "Dark Mode"
+        </p>
+        <div>
+            <button style="margin: 10px; font-size: large;" onclick="switchImageDarkLight(this)">Switch</button>
+        </div>
+        <img src="dark_mode_newsletter_message.jpg" id="m_dark">
+    </section>
+    <section>
+        <p>
+            [MOBILE] Menu page both in home page and some other page looks a
+            lot different in placement
+        </p>
+        <div>
+            <button style="margin: 10px; font-size: large;" onclick="switchImageNav(this)">Switch</button>
+        </div>
+        <img src="mobile_home_page_nav.jpg" id="m_nav_home">
+    </section>
+    <section>
+        <p>
+            [MOBILE] Form page looks just right in donate page but not so
+            good in the adopt page
+        </p>
+        <div>
+            <button style="margin: 10px; font-size: large;" onclick="switchImagePage(this)">Switch</button>
+        </div>
+        <img src="donate_pets_page.jpg" id="m_donate">
+    </section>
+    <section>
+        <p>
+            [MOBILE] The "Scroll to Top" button seems weirdly positioned and
+            its look/color leaves room for improvement
+        </p>
+        <img src="mobile_scroll_to_top.jpg" id="m_scroll">
+    </section>
 </body>
+
 </html>
